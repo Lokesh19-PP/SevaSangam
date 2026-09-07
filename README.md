@@ -794,8 +794,63 @@ Analytics
 
 ---
 
+# ⚠️ IMPORTANT DEVELOPMENT INSTRUCTIONS
 
+This is an **SIH MVP**, so:
 
+* Do not create unnecessary microservices
+* Keep architecture modular but simple
+* Prioritize a working prototype
+* Use clean reusable components
+* Make the UI highly professional
+* Ensure responsiveness
+* Use mock APIs initially
+* Keep the frontend ready for future FastAPI integration
+* Demonstrate AI features clearly
+* Make the project suitable for hackathon presentation and live demo
 
+---
 
+# 📌 REQUIRED OUTPUT ORDER
 
+Follow this exact order:
+
+### Step 1
+
+Suggest the complete **project folder structure**.
+
+### Step 2
+
+Create **Customer, Worker, and Admin dashboard diagrams**.
+
+### Step 3
+
+Create the complete **System Architecture Diagram**.
+
+### Step 4
+
+Create the complete **Technology Stack Architecture Diagram**.
+
+### Step 5
+
+Suggest the **UI/UX theme, colors, typography, and design system**.
+
+### Step 6
+
+Explain the complete **application workflow and data flow**.
+
+### Step 7
+
+Recommend the implementation/development approach for the complete prototype using **React + Tailwind + Mock APIs**.
+
+### Step 8
+
+After completing all of the above, generate a **final, highly detailed, ready-to-copy Antigravity AI prompt** to build the complete SevaSangam frontend prototype.
+
+The final Antigravity prompt should be clearly separated under:
+
+# 🚀 FINAL ANTIGRAVITY PROMPT
+
+Make it directly copy-paste ready.
+
+Do not skip any feature mentioned above.
