@@ -849,8 +849,4 @@ After completing all of the above, generate a **final, highly detailed, ready-to
 
 The final Antigravity prompt should be clearly separated under:
 
-# 🚀 FINAL ANTIGRAVITY PROMPT
 
-Make it directly copy-paste ready.
-
-Do not skip any feature mentioned above.
