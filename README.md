@@ -2,7 +2,7 @@
 
 We are building a **scalable, modern, AI-powered Cooperative Gig Services Platform** for the **Smart India Hackathon (SIH)**.
 
-The project name is:
+The Project name is:
 
 # **SevaSangam**
 
