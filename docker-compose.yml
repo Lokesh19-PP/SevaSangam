@@ -1,0 +1,58 @@
+# =========================================================
+# SevaSangam — Docker Compose
+# "Trusted Services. Fair Opportunities. Stronger Communities."
+# =========================================================
+
+version: "3.9"
+
+services:
+  # ---------------------------------------------------------
+  # Frontend — React + Vite
+  # ---------------------------------------------------------
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8000/api/v1
+    depends_on:
+      - backend
+
+  # ---------------------------------------------------------
+  # Backend — FastAPI
+  # ---------------------------------------------------------
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - DATABASE_URL=postgresql://sevasangam:sevasangam@db:5432/sevasangam
+      - ENV=development
+    depends_on:
+      - db
+
+  # ---------------------------------------------------------
+  # Database — PostgreSQL + PostGIS
+  # ---------------------------------------------------------
+  db:
+    image: postgis/postgis:16-3.4
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=sevasangam
+      - POSTGRES_PASSWORD=sevasangam
+      - POSTGRES_DB=sevasangam
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

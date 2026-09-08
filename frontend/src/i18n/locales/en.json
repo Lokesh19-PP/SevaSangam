@@ -1,0 +1,30 @@
+{
+  "appName": "SevaSangam",
+  "tagline": "Trusted Services. Fair Opportunities. Stronger Communities.",
+  "roles": {
+    "customer": "Customer",
+    "worker": "Cooperative Worker",
+    "admin": "Cooperative Administrator"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "workers": "Workers",
+    "bookings": "Bookings",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "dashboard": "Dashboard"
+  },
+  "common": {
+    "search": "Search",
+    "viewDetails": "View Details",
+    "bookNow": "Book Now",
+    "emergency": "Emergency Request",
+    "cancel": "Cancel",
+    "save": "Save",
+    "status": "Status",
+    "loading": "Loading...",
+    "noData": "No records found"
+  }
+}
