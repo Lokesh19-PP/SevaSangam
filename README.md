@@ -18,62 +18,62 @@ Your task is to help us **design and develop a complete working prototype** base
 
 Create **visual diagrams** showing how the following three dashboards work:
 
-* 👤 Customer Panel
-* 👷 Worker Panel
-* 🏢 Cooperative Administrator Panel
+- 👤 Customer Panel
+- 👷 Worker Panel
+- 🏢 Cooperative Administrator Panel
 
 Clearly explain:
 
-* What features each dashboard contains
-* What pages/screens are required
-* How users navigate between features
-* How data flows between Customer, Worker, and Admin
-* What actions each role can perform
+- What features each dashboard contains
+- What pages/screens are required
+- How users navigate between features
+- How data flows between Customer, Worker, and Admin
+- What actions each role can perform
 
 ### 👤 Customer Dashboard
 
 Include:
 
-* Browse services
-* Find nearby workers
-* View worker profiles
-* Book services
-* Schedule appointments
-* Track booking status
-* Emergency service request
-* Booking history
-* Ratings and reviews
-* Profile management
+- Browse services
+- Find nearby workers
+- View worker profiles
+- Book services
+- Schedule appointments
+- Track booking status
+- Emergency service request
+- Booking history
+- Ratings and reviews
+- Profile management
 
 ### 👷 Worker Dashboard
 
 Include:
 
-* Profile management
-* Skills management
-* Certificate upload
-* Availability management
-* Receive booking requests
-* Accept/reject jobs
-* Upcoming jobs
-* Completed jobs
-* Earnings tracking
-* Ratings and feedback
+- Profile management
+- Skills management
+- Certificate upload
+- Availability management
+- Receive booking requests
+- Accept/reject jobs
+- Upcoming jobs
+- Completed jobs
+- Earnings tracking
+- Ratings and feedback
 
 ### 🏢 Admin Dashboard
 
 Include:
 
-* Worker verification
-* Certificate verification
-* Worker management
-* Booking monitoring
-* Workforce utilization
-* Fair job distribution monitoring
-* Service demand monitoring
-* Complaint management
-* Analytics and reports
-* Worker welfare information
+- Worker verification
+- Certificate verification
+- Worker management
+- Booking monitoring
+- Workforce utilization
+- Fair job distribution monitoring
+- Service demand monitoring
+- Complaint management
+- Analytics and reports
+- Worker welfare information
 
 Use **clear visual diagrams using Mermaid diagrams or structured architecture diagrams**.
 
@@ -85,18 +85,18 @@ Design the complete system architecture of SevaSangam.
 
 Explain:
 
-* How React frontend communicates with FastAPI
-* How APIs communicate with PostgreSQL/PostGIS
-* How AI/ML integrates with the backend
-* How OCR certificate verification works
-* How Twilio notifications work
-* How all dashboards interact with the backend
+- How React frontend communicates with FastAPI
+- How APIs communicate with PostgreSQL/PostGIS
+- How AI/ML integrates with the backend
+- How OCR certificate verification works
+- How Twilio notifications work
+- How all dashboards interact with the backend
 
 Provide:
 
-* High-level system architecture diagram
-* Detailed data flow
-* Complete application workflow
+- High-level system architecture diagram
+- Detailed data flow
+- Complete application workflow
 
 Example flow:
 
@@ -124,40 +124,40 @@ Use:
 
 ### Frontend
 
-* React
-* JavaScript
-* HTML5
-* Tailwind CSS
+- React
+- JavaScript
+- HTML5
+- Tailwind CSS
 
 ### Backend
 
-* FastAPI
-* Python
-* REST APIs
+- FastAPI
+- Python
+- REST APIs
 
 ### Database
 
-* PostgreSQL
-* PostGIS
+- PostgreSQL
+- PostGIS
 
 ### AI/ML
 
-* Scikit-learn
-* TensorFlow (optional/future use)
-* OpenCV
-* Tesseract OCR
+- Scikit-learn
+- TensorFlow (optional/future use)
+- OpenCV
+- Tesseract OCR
 
 ### Notifications
 
-* Twilio
-* SMS
-* WhatsApp
+- Twilio
+- SMS
+- WhatsApp
 
 ### Deployment
 
-* Docker
-* Vercel
-* GitHub
+- Docker
+- Vercel
+- GitHub
 
 Show how these technologies connect and communicate.
 
@@ -169,29 +169,29 @@ Generate a **very classy, modern, professional, and visually attractive UI** sui
 
 The design should feel:
 
-* Modern
-* Trustworthy
-* Professional
-* Premium
-* Clean
-* Easy to use
-* Responsive
-* Accessible
+- Modern
+- Trustworthy
+- Professional
+- Premium
+- Clean
+- Easy to use
+- Responsive
+- Accessible
 
 ## 🎨 UI Theme
 
 Suggest the best UI theme, including:
 
-* Primary color
-* Secondary color
-* Background colors
-* Accent colors
-* Typography
-* Card design
-* Button styles
-* Dashboard layout
-* Sidebar design
-* Icons
+- Primary color
+- Secondary color
+- Background colors
+- Accent colors
+- Typography
+- Card design
+- Button styles
+- Dashboard layout
+- Sidebar design
+- Icons
 
 The UI should represent:
 
@@ -199,12 +199,12 @@ The UI should represent:
 
 Use:
 
-* Clean dashboards
-* Modern cards
-* Smooth transitions
-* Subtle animations
-* Professional icons
-* Responsive design
+- Clean dashboards
+- Modern cards
+- Smooth transitions
+- Subtle animations
+- Professional icons
+- Responsive design
 
 Avoid an overly complicated interface.
 
@@ -280,30 +280,30 @@ Suggest a detailed structure for both:
 
 Include appropriate folders such as:
 
-* components
-* pages
-* layouts
-* dashboards
-* services
-* hooks
-* context
-* routes
-* utils
-* assets
+- components
+- pages
+- layouts
+- dashboards
+- services
+- hooks
+- context
+- routes
+- utils
+- assets
 
 ### Backend
 
 Include:
 
-* api
-* models
-* schemas
-* services
-* repositories
-* ai
-* integrations
-* database
-* core
+- api
+- models
+- schemas
+- services
+- repositories
+- ai
+- integrations
+- database
+- core
 
 Clearly explain the purpose of each folder.
 
@@ -321,24 +321,24 @@ The Antigravity prompt should instruct it to generate the complete **SevaSangam 
 
 The Antigravity prompt must include:
 
-* Project description
-* Project name
-* UI theme
-* Complete pages
-* Customer Dashboard
-* Worker Dashboard
-* Admin Dashboard
-* Navigation
-* Components
-* Responsive design
-* Mock API integration
-* Mock data
-* API service abstraction
-* Folder structure
-* Technology stack
-* Required features
-* Modern UI requirements
-* User workflows
+- Project description
+- Project name
+- UI theme
+- Complete pages
+- Customer Dashboard
+- Worker Dashboard
+- Admin Dashboard
+- Navigation
+- Components
+- Responsive design
+- Mock API integration
+- Mock data
+- API service abstraction
+- Folder structure
+- Technology stack
+- Required features
+- Modern UI requirements
+- User workflows
 
 The Antigravity prompt should be **ready to directly copy and paste**.
 
@@ -348,10 +348,10 @@ The Antigravity prompt should be **ready to directly copy and paste**.
 
 ## 🎨 Frontend
 
-* React
-* JavaScript
-* HTML5
-* Tailwind CSS
+- React
+- JavaScript
+- HTML5
+- Tailwind CSS
 
 Build a modern, responsive, interactive web application.
 
@@ -361,18 +361,18 @@ Build a modern, responsive, interactive web application.
 
 The Customer Dashboard should include:
 
-* Browse services
-* Search services
-* Find nearby workers
-* View worker profiles
-* View ratings
-* Book services
-* Schedule appointments
-* Track bookings
-* Emergency service requests
-* Service history
-* Ratings and reviews
-* Profile management
+- Browse services
+- Search services
+- Find nearby workers
+- View worker profiles
+- View ratings
+- Book services
+- Schedule appointments
+- Track bookings
+- Emergency service requests
+- Service history
+- Ratings and reviews
+- Profile management
 
 ---
 
@@ -380,16 +380,16 @@ The Customer Dashboard should include:
 
 The Worker Dashboard should include:
 
-* Profile management
-* Skills management
-* Upload certifications
-* Availability management
-* Receive booking requests
-* Accept/reject jobs
-* Upcoming jobs
-* Completed jobs
-* Earnings dashboard
-* Ratings and feedback
+- Profile management
+- Skills management
+- Upload certifications
+- Availability management
+- Receive booking requests
+- Accept/reject jobs
+- Upcoming jobs
+- Completed jobs
+- Earnings dashboard
+- Ratings and feedback
 
 ---
 
@@ -397,17 +397,17 @@ The Worker Dashboard should include:
 
 The Cooperative Administrator Dashboard should include:
 
-* Worker verification
-* Certificate verification
-* Worker management
-* Booking monitoring
-* Workforce utilization
-* Fair job distribution
-* Service demand monitoring
-* Complaint handling
-* Analytics
-* Reports
-* Worker welfare management
+- Worker verification
+- Certificate verification
+- Worker management
+- Booking monitoring
+- Workforce utilization
+- Fair job distribution
+- Service demand monitoring
+- Complaint handling
+- Analytics
+- Reports
+- Worker welfare management
 
 ---
 
@@ -415,28 +415,28 @@ The Cooperative Administrator Dashboard should include:
 
 ## Technologies
 
-* FastAPI
-* Python
-* RESTful APIs
+- FastAPI
+- Python
+- RESTful APIs
 
 FastAPI will handle:
 
-* Authentication
-* Authorization
-* User management
-* Worker management
-* Service management
-* Booking
-* Scheduling
-* Worker availability
-* Smart worker matching
-* Geo-location queries
-* Emergency services
-* AI/ML integration
-* OCR processing
-* Notifications
-* Payments
-* Analytics
+- Authentication
+- Authorization
+- User management
+- Worker management
+- Service management
+- Booking
+- Scheduling
+- Worker availability
+- Smart worker matching
+- Geo-location queries
+- Emergency services
+- AI/ML integration
+- OCR processing
+- Notifications
+- Payments
+- Analytics
 
 Use a **clean, modular, scalable architecture**.
 
@@ -460,8 +460,8 @@ Configuration
 
 Use either:
 
-* Firebase Authentication, OR
-* Auth0
+- Firebase Authentication, OR
+- Auth0
 
 Recommend the best option for:
 
@@ -487,23 +487,23 @@ Each role should only access its authorized dashboard and features.
 
 Store:
 
-* Users
-* Customers
-* Workers
-* Cooperatives
-* Services
-* Skills
-* Certifications
-* Bookings
-* Schedules
-* Availability
-* Ratings
-* Reviews
-* Payments
-* Notifications
-* Complaints
-* Welfare information
-* Analytics data
+- Users
+- Customers
+- Workers
+- Cooperatives
+- Services
+- Skills
+- Certifications
+- Bookings
+- Schedules
+- Availability
+- Ratings
+- Reviews
+- Payments
+- Notifications
+- Complaints
+- Welfare information
+- Analytics data
 
 ---
 
@@ -511,14 +511,14 @@ Store:
 
 Use PostGIS for:
 
-* Customer location
-* Worker location
-* Geographic coordinates
-* Nearby worker search
-* Distance calculations
-* Service areas
-* Location-based worker matching
-* Emergency worker discovery
+- Customer location
+- Worker location
+- Geographic coordinates
+- Nearby worker search
+- Distance calculations
+- Service areas
+- Location-based worker matching
+- Emergency worker discovery
 
 Example:
 
@@ -536,13 +536,13 @@ Use Scikit-learn or a practical scoring/ML approach.
 
 Consider:
 
-* Required skills
-* Distance
-* Availability
-* Worker rating
-* Previous performance
-* Current workload
-* Fair job distribution
+- Required skills
+- Distance
+- Availability
+- Worker rating
+- Previous performance
+- Current workload
+- Fair job distribution
 
 Balance:
 
@@ -556,11 +556,11 @@ Design a practical matching algorithm suitable for the SIH MVP.
 
 Analyze historical booking data to predict:
 
-* Future service demand
-* High-demand services
-* High-demand locations
-* Peak booking periods
-* Workforce requirements
+- Future service demand
+- High-demand services
+- High-demand locations
+- Peak booking periods
+- Workforce requirements
 
 Use Scikit-learn for the MVP.
 
@@ -570,10 +570,10 @@ Use Scikit-learn for the MVP.
 
 Keep TensorFlow optional for future features:
 
-* Advanced forecasting
-* Deep-learning recommendations
-* Pattern recognition
-* Workforce prediction
+- Advanced forecasting
+- Deep-learning recommendations
+- Pattern recognition
+- Workforce prediction
 
 Do not unnecessarily complicate the SIH MVP.
 
@@ -583,8 +583,8 @@ Do not unnecessarily complicate the SIH MVP.
 
 Use:
 
-* OpenCV
-* Tesseract OCR
+- OpenCV
+- Tesseract OCR
 
 Workflow:
 
@@ -660,10 +660,10 @@ Worker Accepts Request
 
 Prioritize:
 
-* Distance
-* Availability
-* Required skill
-* Response speed
+- Distance
+- Availability
+- Required skill
+- Response speed
 
 ---
 
@@ -673,21 +673,21 @@ Use **Twilio**.
 
 Support:
 
-* SMS
-* WhatsApp notifications
+- SMS
+- WhatsApp notifications
 
 Notifications:
 
-* New booking
-* Booking accepted/rejected
-* Cancellation
-* Emergency requests
-* Worker alerts
-* Booking updates
-* Appointment reminders
-* Service completion
-* Payment updates
-* Cooperative announcements
+- New booking
+- Booking accepted/rejected
+- Cancellation
+- Emergency requests
+- Worker alerts
+- Booking updates
+- Appointment reminders
+- Service completion
+- Payment updates
+- Cooperative announcements
 
 Architecture:
 
@@ -713,12 +713,12 @@ For the SIH MVP:
 
 Implement:
 
-* Mock payment
-* Pending status
-* Paid status
-* Cash payment
-* Payment records
-* Digital invoice structure
+- Mock payment
+- Pending status
+- Paid status
+- Cash payment
+- Payment records
+- Digital invoice structure
 
 Workflow:
 
@@ -744,16 +744,16 @@ Design the module so Razorpay/UPI can be integrated later.
 
 Use Docker for:
 
-* FastAPI backend
-* AI/ML services
-* PostgreSQL + PostGIS during development
-* Consistent development environment
+- FastAPI backend
+- AI/ML services
+- PostgreSQL + PostGIS during development
+- Consistent development environment
 
 ## Vercel
 
 Deploy:
 
-* React frontend
+- React frontend
 
 Flow:
 
@@ -798,16 +798,16 @@ Analytics
 
 This is an **SIH MVP**, so:
 
-* Do not create unnecessary microservices
-* Keep architecture modular but simple
-* Prioritize a working prototype
-* Use clean reusable components
-* Make the UI highly professional
-* Ensure responsiveness
-* Use mock APIs initially
-* Keep the frontend ready for future FastAPI integration
-* Demonstrate AI features clearly
-* Make the project suitable for hackathon presentation and live demo
+- Do not create unnecessary microservices
+- Keep architecture modular but simple
+- Prioritize a working prototype
+- Use clean reusable components
+- Make the UI highly professional
+- Ensure responsiveness
+- Use mock APIs initially
+- Keep the frontend ready for future FastAPI integration
+- Demonstrate AI features clearly
+- Make the project suitable for hackathon presentation and live demo
 
 ---
 
@@ -848,5 +848,3 @@ Recommend the implementation/development approach for the complete prototype usi
 After completing all of the above, generate a **final, highly detailed, ready-to-copy Antigravity AI prompt** to build the complete SevaSangam frontend prototype.
 
 The final Antigravity prompt should be clearly separated under:
-
-
