@@ -10,6 +10,7 @@
 A cooperative-owned digital service marketplace (SIH Problem Statement 26089, Ministry of Cooperation / NCCT) connecting customers with **verified workers from Labour Cooperative Societies** — electricians, plumbers, carpenters, domestic help, caregivers, drivers, gardeners, cleaners, technicians.
 
 This is explicitly **NOT an Urban Company clone**. The differentiators are:
+
 - Fair job distribution among cooperative workers (not just nearest/highest-rated)
 - Worker welfare & insurance visibility
 - AI-based smart matching balancing skill + distance + availability + rating + **current workload**
@@ -73,25 +74,26 @@ SevaSangam/
         ├── services/api/
         └── utils/
 ```
+
 Frontend skeleton exists but is **mostly empty folders** — no real components/pages built yet. Backend has not been scaffolded at all yet.
 
 ## 6. Team & branches
 
 **Backend team (by difficulty):**
 
-| Member | Branch | Difficulty | Owns |
-|---|---|---|---|
-| Yash Thakur | `Yash-Thakur` | Easy | Backend scaffold, core config, health endpoint, Docker, docs, env files |
-| Yash | `Yash` | Medium | Database connection/session, models, schemas, repositories |
-| Lokesh | `Lokesh` | Hard | Services (business logic) + AI matching & forecasting skeleton |
+| Member      | Branch        | Difficulty | Owns                                                                    |
+| ----------- | ------------- | ---------- | ----------------------------------------------------------------------- |
+| Yash Thakur | `Yash-Thakur` | Easy       | Backend scaffold, core config, health endpoint, Docker, docs, env files |
+| Yash        | `Yash`        | Medium     | Database connection/session, models, schemas, repositories              |
+| Lokesh      | `Lokesh`      | Hard       | Services (business logic) + AI matching & forecasting skeleton          |
 
 **Frontend team:**
 
-| Member | Branch | Owns |
-|---|---|---|
-| Janhvi | `Janhvi` | Design system + Customer Dashboard + mock data |
-| Priti | `Priti` | Worker Dashboard + shared component library + API service layer |
-| Ashana | `Ashana` | Admin Dashboard + Routing/Auth/Context + i18n |
+| Member | Branch   | Owns                                                            |
+| ------ | -------- | --------------------------------------------------------------- |
+| Janhvi | `Janhvi` | Design system + Customer Dashboard + mock data                  |
+| Priti  | `Priti`  | Worker Dashboard + shared component library + API service layer |
+| Ashana | `Ashana` | Admin Dashboard + Routing/Auth/Context + i18n                   |
 
 Full task breakdown: see `docs/team/CONTRIBUTIONS.md`.
 Per-member copy-paste prompts: see `docs/team/prompts/<name>.md`.
