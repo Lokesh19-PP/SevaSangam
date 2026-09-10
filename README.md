@@ -1,6 +1,6 @@
-# SevaSangam (सेवा संगम)
+# SevaSangam (सेवा संगम) Lokesh
 
-> *"Trusted Services. Fair Opportunities. Stronger Communities."*
+> _"Trusted Services. Fair Opportunities. Stronger Communities."_
 
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/Frontend-React%2019-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
@@ -12,11 +12,12 @@
 
 ## 📖 Project Overview
 
-**SevaSangam** is a cooperative-owned digital service marketplace developed for the **Smart India Hackathon (Problem Statement 26089, Ministry of Cooperation / NCCT)**. 
+**SevaSangam** is a cooperative-owned digital service marketplace developed for the **Smart India Hackathon (Problem Statement 26089, Ministry of Cooperation / NCCT)**.
 
 Unlike conventional gig-economy aggregators, SevaSangam connects customers directly with **verified skilled workers from Labour Cooperative Societies** (electricians, plumbers, carpenters, caregivers, domestic help, technicians, and drivers), ensuring fair pay, worker dignity, and cooperative transparency.
 
 ### 🌟 Key Differentiators
+
 - **Fair Workload Distribution**: Algorithmic allocation ensuring balanced job distribution among all active cooperative workers rather than monopolization by top-rated workers.
 - **Worker Welfare & Insurance**: Transparent visibility into cooperative welfare schemes, accident insurance, healthcare benefits, and emergency funds.
 - **AI Smart Matching**: Multi-criteria ranking balancing skill proficiency, proximity (PostGIS), real-time availability, rating, and current workload.
@@ -38,14 +39,14 @@ The application enforces strict separation between user personas:
 
 ## 🛠️ Technology Stack
 
-| Layer | Technologies |
-|---|---|
-| **Frontend** | React 19 (JavaScript), Vite, Tailwind CSS, React Router, i18next |
-| **Backend** | FastAPI, Python 3.12+, Pydantic v2, REST APIs |
-| **Database** | PostgreSQL + PostGIS extension |
-| **AI / ML** | Scikit-learn (matching & forecasting), OpenCV + Tesseract OCR (certificate verification) |
-| **Communications** | Twilio API (SMS & WhatsApp notifications) |
-| **Infra & DevOps** | Docker, Docker Compose, Vercel |
+| Layer              | Technologies                                                                             |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| **Frontend**       | React 19 (JavaScript), Vite, Tailwind CSS, React Router, i18next                         |
+| **Backend**        | FastAPI, Python 3.12+, Pydantic v2, REST APIs                                            |
+| **Database**       | PostgreSQL + PostGIS extension                                                           |
+| **AI / ML**        | Scikit-learn (matching & forecasting), OpenCV + Tesseract OCR (certificate verification) |
+| **Communications** | Twilio API (SMS & WhatsApp notifications)                                                |
+| **Infra & DevOps** | Docker, Docker Compose, Vercel                                                           |
 
 ---
 
@@ -92,6 +93,7 @@ SevaSangam/
 ## 🚀 Local Development Setup
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) (v20 or higher) & `npm`
 - [Python](https://www.python.org/) (v3.12 or higher)
 - [Docker & Docker Compose](https://www.docker.com/) (recommended for PostGIS)
@@ -110,6 +112,7 @@ npm install
 # Start Vite development server
 npm run dev
 ```
+
 The frontend will be available at: **`http://localhost:5173`**
 
 ---
@@ -138,6 +141,7 @@ cp .env.example .env
 # Run FastAPI server with auto-reload
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
+
 - API Base URL: **`http://localhost:8000/api`**
 - Health Check: **`http://localhost:8000/api/health`**
 - Interactive Swagger Docs: **`http://localhost:8000/docs`**
@@ -154,6 +158,7 @@ docker-compose up --build
 ```
 
 Services started:
+
 - **Frontend**: `http://localhost:5173`
 - **Backend API**: `http://localhost:8000`
 - **PostgreSQL / PostGIS Database**: `localhost:5432`
