@@ -1,4 +1,4 @@
-# Frontend Dockerfile
+# Frontend Dockerfile — React + Vite
 FROM node:20-alpine
 
 WORKDIR /app
