@@ -2,14 +2,20 @@
  * Notification API Service — SevaSangam
  * Handles in-app notifications and preferences.
  */
-import apiClient from '../apiClient';
+import apiClient from '../apiClient.js';
+
+export const getNotifications = (params) => apiClient.get('/notifications', params);
+export const markAsRead = (id) => apiClient.patch(`/notifications/${id}/read`);
+export const markAllAsRead = () => apiClient.post('/notifications/read-all');
+export const getUnreadCount = () => apiClient.get('/notifications/unread-count');
+export const updatePreferences = (data) => apiClient.put('/notifications/preferences', data);
 
 const notificationApi = {
-  getNotifications: (params) => apiClient.get('/notifications', params),
-  markAsRead: (id) => apiClient.patch(`/notifications/${id}/read`),
-  markAllAsRead: () => apiClient.post('/notifications/read-all'),
-  getUnreadCount: () => apiClient.get('/notifications/unread-count'),
-  updatePreferences: (data) => apiClient.put('/notifications/preferences', data),
+  getNotifications,
+  markAsRead,
+  markAllAsRead,
+  getUnreadCount,
+  updatePreferences,
 };
 
 export default notificationApi;

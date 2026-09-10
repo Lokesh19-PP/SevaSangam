@@ -38,7 +38,51 @@ const useWorkers = () => {
     }
   }, []);
 
-  return { workers, loading, error, fetchWorkers, fetchNearbyWorkers };
+  const [currentWorker, setCurrentWorker] = useState(null);
+  const [stats, setStats] = useState(null);
+
+  const fetchWorkerById = useCallback(async (id) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const result = await workerApi.getWorkerById(id);
+      const data = result.data || result;
+      setCurrentWorker(data);
+      return data;
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const fetchWorkerStats = useCallback(async (workerId) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const result = await workerApi.getWorkerStats(workerId);
+      const data = result.data || result;
+      setStats(data);
+      return data;
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  return {
+    workers,
+    currentWorker,
+    stats,
+    loading,
+    error,
+    fetchWorkers,
+    fetchNearbyWorkers,
+    fetchWorkerById,
+    fetchWorkerStats,
+  };
 };
 
 export default useWorkers;
+
