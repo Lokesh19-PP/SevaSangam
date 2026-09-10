@@ -1,4 +1,4 @@
-# SevaSangam (सेवा संगम) Lokesh
+# SevaSangam (सेवा संगम)
 
 > _"Trusted Services. Fair Opportunities. Stronger Communities."_
 
