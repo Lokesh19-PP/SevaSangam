@@ -16,8 +16,13 @@ import WorkerProfile from '../pages/WorkerProfile';
 import Booking from '../pages/Booking';
 import NotFound from '../pages/NotFound';
 
-// Dashboards
-import CustomerDashboard from '../dashboards/customer/index';
+// Customer Dashboard Pages
+import CustomerHome from '../dashboards/customer/Home';
+import CustomerServices from '../dashboards/customer/Services';
+import CustomerWorkerProfile from '../dashboards/customer/WorkerProfile';
+import BookingHistory from '../dashboards/customer/BookingHistory';
+import BookingFlow from '../dashboards/customer/BookingFlow';
+
 import WorkerDashboard from '../dashboards/worker/index';
 import AdminDashboard from '../dashboards/admin/index';
 
@@ -56,7 +61,12 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       >
-        <Route index element={<CustomerDashboard />} />
+        <Route index element={<CustomerHome />} />
+        <Route path="services" element={<CustomerServices />} />
+        <Route path="workers/:id" element={<CustomerWorkerProfile />} />
+        <Route path="bookings" element={<BookingHistory />} />
+        <Route path="book" element={<BookingFlow />} />
+        <Route path="book/:serviceId" element={<BookingFlow />} />
       </Route>
 
       {/* Worker Dashboard (Protected + Role-restricted) */}
