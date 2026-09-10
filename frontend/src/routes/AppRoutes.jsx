@@ -24,6 +24,11 @@ import BookingHistory from '../dashboards/customer/BookingHistory';
 import BookingFlow from '../dashboards/customer/BookingFlow';
 
 import WorkerDashboard from '../dashboards/worker/index';
+import WorkerProfilePage from '../dashboards/worker/Profile';
+import WorkerAvailability from '../dashboards/worker/Availability';
+import WorkerBookings from '../dashboards/worker/Bookings';
+import WorkerEarnings from '../dashboards/worker/Earnings';
+import WorkerRatings from '../dashboards/worker/Ratings';
 import AdminDashboard from '../dashboards/admin/index';
 
 // Route Guards
@@ -81,6 +86,11 @@ const AppRoutes = () => {
         }
       >
         <Route index element={<WorkerDashboard />} />
+        <Route path="profile" element={<WorkerProfilePage />} />
+        <Route path="bookings" element={<WorkerBookings />} />
+        <Route path="earnings" element={<WorkerEarnings />} />
+        <Route path="ratings" element={<WorkerRatings />} />
+        <Route path="availability" element={<WorkerAvailability />} />
       </Route>
 
       {/* Admin Dashboard (Protected + Role-restricted) */}
