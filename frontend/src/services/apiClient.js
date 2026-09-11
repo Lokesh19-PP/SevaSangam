@@ -94,7 +94,7 @@ import mockApi, {
 
 const API_BASE_URL =
   (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL) ||
-  'http://localhost:8000/api/v1';
+  'http://localhost:8000/api';
 
 // Default to mock API in development unless explicitly set to 'false'
 const USE_MOCK_API =
