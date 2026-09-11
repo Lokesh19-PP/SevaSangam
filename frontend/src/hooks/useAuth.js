@@ -1,6 +1,9 @@
 /**
  * useAuth Hook — SevaSangam
  * Provides authentication state and methods to components.
+ *
+ * Usage:
+ *   const { user, role, isAuthenticated, login, register, logout, loading, error } = useAuth();
  */
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';

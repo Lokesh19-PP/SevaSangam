@@ -8,9 +8,12 @@ import Sidebar from '../components/navigation/Sidebar';
  */
 const AdminLayout = () => {
   const adminNavLinks = [
-    { label: 'Admin Overview', path: '/admin', icon: '🏛️', exact: true },
-    { label: 'Worker Verification', path: '/admin', icon: '✅' },
-    { label: 'Analytics & Demand', path: '/admin', icon: '📈' },
+    { label: 'Dashboard', path: '/admin', icon: '🏛️', exact: true },
+    { label: 'Worker Verification', path: '/admin/verification', icon: '🛡️' },
+    { label: 'Bookings', path: '/admin/bookings', icon: '📅' },
+    { label: 'Analytics', path: '/admin/analytics', icon: '📈' },
+    { label: 'Complaints', path: '/admin/complaints', icon: '⚖️' },
+    { label: 'Welfare', path: '/admin/welfare', icon: '🤝' },
   ];
 
   return (
