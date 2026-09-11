@@ -7,7 +7,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Trust + Cooperation: Deep Teal (#0F766E family)
+        // Neo-Brutalism Signature Palette
+        neo: {
+          yellow: '#FFE600',
+          'yellow-light': '#FEF08A',
+          orange: '#FF6B00',
+          'orange-light': '#FFEDD5',
+          teal: '#0D9488',
+          'teal-light': '#CCFBF1',
+          cyan: '#00D2FF',
+          'cyan-light': '#E0F2FE',
+          pink: '#FF5E7E',
+          'pink-light': '#FFE4E6',
+          purple: '#A855F7',
+          'purple-light': '#F3E8FF',
+          lime: '#84CC16',
+          'lime-light': '#ECFCCB',
+          bg: '#FFFDF6',
+          surface: '#FFFFFF',
+          dark: '#121212',
+          black: '#000000',
+        },
+        // Primary Trust Teal
         primary: {
           50: '#f0fdfa',
           100: '#ccfbf1',
@@ -16,20 +37,20 @@ export default {
           400: '#2dd4bf',
           500: '#14b8a6',
           600: '#0d9488',
-          700: '#0f766e', // Core Deep Teal
+          700: '#0f766e',
           800: '#115e59',
           900: '#134e4a',
           950: '#042f2e',
-          DEFAULT: '#0f766e',
+          DEFAULT: '#0d9488',
         },
-        // Service + Energy: Warm Saffron / Amber (#F59E0B family)
+        // Warm Saffron / Amber
         secondary: {
           50: '#fffbeb',
           100: '#fef3c7',
           200: '#fde68a',
           300: '#fcd34d',
           400: '#fbbf24',
-          500: '#f59e0b', // Core Warm Saffron / Amber
+          500: '#f59e0b',
           600: '#d97706',
           700: '#b45309',
           800: '#92400e',
@@ -37,14 +58,14 @@ export default {
           950: '#451a03',
           DEFAULT: '#f59e0b',
         },
-        // Action + Links: Soft Blue (#3B82F6 family)
+        // Action & Links
         accent: {
           50: '#eff6ff',
           100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#3b82f6', // Core Soft Blue
+          500: '#3b82f6',
           600: '#2563eb',
           700: '#1d4ed8',
           800: '#1e40af',
@@ -52,7 +73,7 @@ export default {
           950: '#172554',
           DEFAULT: '#3b82f6',
         },
-        // Cards & Dashboards: Neutral Greys
+        // Neutral Greys
         neutral: {
           50: '#f8fafc',
           100: '#f1f5f9',
@@ -68,17 +89,32 @@ export default {
         },
         surface: {
           light: '#ffffff',
-          muted: '#f8fafc',
+          muted: '#fffdf6',
           card: '#ffffff',
-          border: '#e2e8f0',
+          border: '#000000',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        card: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-        'card-hover': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+        'neo-xs': '1.5px 1.5px 0px 0px #000000',
+        'neo-sm': '2px 2px 0px 0px #000000',
+        neo: '4px 4px 0px 0px #000000',
+        'neo-md': '5px 5px 0px 0px #000000',
+        'neo-lg': '6px 6px 0px 0px #000000',
+        'neo-xl': '8px 8px 0px 0px #000000',
+        'neo-2xl': '12px 12px 0px 0px #000000',
+        'neo-hover': '6px 6px 0px 0px #000000',
+        'neo-active': '0px 0px 0px 0px #000000',
+        'neo-yellow': '4px 4px 0px 0px #FFE600',
+        'neo-teal': '4px 4px 0px 0px #0D9488',
+        'neo-pink': '4px 4px 0px 0px #FF5E7E',
+      },
+      borderWidth: {
+        '3': '3px',
+        '4': '4px',
       },
     },
   },

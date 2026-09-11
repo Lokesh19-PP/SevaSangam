@@ -4,8 +4,8 @@ import useLanguage from '../../hooks/useLanguage';
 import Button from '../ui/Button';
 
 /**
- * Navbar Component — SevaSangam
- * Responsive top navigation bar with brand, language switcher, and auth actions.
+ * Neo-Brutalist Navbar Component — SevaSangam
+ * Bold black borders, vibrant badges, and tactile interactive controls.
  */
 const Navbar = () => {
   const { user, isAuthenticated, logout } = useAuth();
@@ -13,30 +13,43 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-xs border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full bg-[#FFFDF6] border-b-[2.5px] border-black shadow-neo-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-sky-600 flex items-center justify-center text-white font-bold text-lg">
-            S
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-10 h-10 rounded-xl bg-yellow-400 border-2 border-black shadow-neo-xs flex items-center justify-center text-black font-extrabold text-xl group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-neo transition-all">
+            ⚡
           </div>
           <div>
-            <span className="text-lg font-bold text-slate-900 tracking-tight">SevaSangam</span>
-            <span className="hidden sm:block text-[10px] text-slate-500 font-medium -mt-1">
-              Cooperative Services
+            <div className="flex items-center gap-1.5">
+              <span className="text-xl font-extrabold text-black tracking-tight font-display">
+                Seva<span className="bg-teal-400 px-1.5 py-0.5 rounded-md border border-black text-black ml-0.5">Sangam</span>
+              </span>
+            </div>
+            <span className="hidden sm:block text-[11px] text-slate-700 font-bold uppercase tracking-wider">
+              Cooperative Labor Network
             </span>
           </div>
         </Link>
 
         {/* Public Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-          <Link to="/" className="hover:text-sky-600 transition-colors">
+        <nav className="hidden md:flex items-center gap-2">
+          <Link
+            to="/"
+            className="px-3.5 py-1.5 rounded-lg text-sm font-bold text-black border-2 border-transparent hover:border-black hover:bg-yellow-200 hover:shadow-neo-xs transition-all"
+          >
             Home
           </Link>
-          <Link to="/services" className="hover:text-sky-600 transition-colors">
+          <Link
+            to="/services"
+            className="px-3.5 py-1.5 rounded-lg text-sm font-bold text-black border-2 border-transparent hover:border-black hover:bg-cyan-200 hover:shadow-neo-xs transition-all"
+          >
             Services
           </Link>
-          <Link to="/workers" className="hover:text-sky-600 transition-colors">
+          <Link
+            to="/workers"
+            className="px-3.5 py-1.5 rounded-lg text-sm font-bold text-black border-2 border-transparent hover:border-black hover:bg-orange-200 hover:shadow-neo-xs transition-all"
+          >
             Workers
           </Link>
         </nav>
@@ -47,7 +60,7 @@ const Navbar = () => {
           <select
             value={currentLanguage}
             onChange={(e) => changeLanguage(e.target.value)}
-            className="text-xs bg-slate-50 border border-slate-200 rounded-md px-2 py-1.5 text-slate-700 focus:outline-none focus:ring-1 focus:ring-sky-500 cursor-pointer"
+            className="text-xs font-bold bg-white border-2 border-black rounded-xl px-2.5 py-2 text-black shadow-neo-xs focus:outline-none focus:shadow-neo cursor-pointer transition-all"
           >
             {supportedLanguages.map((lang) => (
               <option key={lang.code} value={lang.code}>
@@ -61,20 +74,20 @@ const Navbar = () => {
             <div className="flex items-center gap-2">
               <Link
                 to={`/${user?.role || 'customer'}`}
-                className="text-xs font-semibold text-sky-600 hover:text-sky-700 px-2 py-1"
+                className="text-xs font-extrabold bg-teal-300 text-teal-950 border-2 border-black rounded-xl px-3 py-2 shadow-neo-xs hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo transition-all"
               >
                 Dashboard
               </Link>
-              <Button variant="ghost" size="sm" onClick={logout}>
+              <Button variant="outline" size="sm" onClick={logout}>
                 Logout
               </Button>
             </div>
           ) : (
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" onClick={() => navigate('/login')}>
+              <Button variant="outline" size="sm" onClick={() => navigate('/login')}>
                 Login
               </Button>
-              <Button variant="primary" size="sm" onClick={() => navigate('/register')}>
+              <Button variant="secondary" size="sm" onClick={() => navigate('/register')}>
                 Register
               </Button>
             </div>

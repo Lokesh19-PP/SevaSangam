@@ -3,9 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import Input from '../components/ui/Input';
 import Button from '../components/ui/Button';
+import Badge from '../components/ui/Badge';
 
 /**
- * Register Page — SevaSangam
+ * Neo-Brutalist Register Page — SevaSangam
  * Registration interface for Customers and Cooperative Workers.
  */
 const Register = () => {
@@ -17,7 +18,7 @@ const Register = () => {
   const [cooperative, setCooperative] = useState('');
   const [error, setError] = useState('');
 
-  const { login, loading } = useAuth();
+  const { register, login, loading } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -25,10 +26,12 @@ const Register = () => {
     setError('');
 
     try {
-      await login({
+      const regFunc = register || login;
+      await regFunc({
         email,
         password,
         role,
+        full_name: name,
         name,
         phone,
         cooperative: role === 'worker' ? cooperative : null,
@@ -41,43 +44,48 @@ const Register = () => {
 
   return (
     <div className="w-full">
-      <h2 className="text-xl font-bold text-slate-900 text-center mb-1">
-        Create Your Account
-      </h2>
-      <p className="text-xs text-slate-500 text-center mb-6">
-        Join the SevaSangam cooperative platform
-      </p>
+      <div className="text-center mb-6">
+        <Badge variant="primary" size="sm" shadow className="mb-2">
+          🏛️ Join SevaSangam Guild
+        </Badge>
+        <h2 className="text-2xl font-extrabold text-black font-display tracking-tight">
+          Create Your Account
+        </h2>
+        <p className="text-xs font-bold text-slate-700 mt-1">
+          Cooperative-powered digital service network
+        </p>
+      </div>
 
       {/* Role Selection Tabs */}
-      <div className="flex rounded-lg bg-slate-100 p-1 mb-6">
+      <div className="flex rounded-2xl bg-yellow-100/70 p-1.5 border-2 border-black mb-6 gap-2">
         <button
           type="button"
           onClick={() => setRole('customer')}
-          className={`flex-1 py-2 text-xs font-semibold rounded-md transition-all cursor-pointer ${
+          className={`flex-1 py-2.5 text-xs font-extrabold rounded-xl border-2 transition-all cursor-pointer ${
             role === 'customer'
-              ? 'bg-white text-slate-900 shadow-xs'
-              : 'text-slate-600 hover:text-slate-900'
+              ? 'bg-yellow-300 text-black border-black shadow-neo-xs -translate-x-0.5 -translate-y-0.5'
+              : 'border-transparent text-slate-800 hover:bg-white'
           }`}
         >
-          👤 I need services (Customer)
+          👤 Need Services (Customer)
         </button>
         <button
           type="button"
           onClick={() => setRole('worker')}
-          className={`flex-1 py-2 text-xs font-semibold rounded-md transition-all cursor-pointer ${
+          className={`flex-1 py-2.5 text-xs font-extrabold rounded-xl border-2 transition-all cursor-pointer ${
             role === 'worker'
-              ? 'bg-white text-slate-900 shadow-xs'
-              : 'text-slate-600 hover:text-slate-900'
+              ? 'bg-teal-300 text-black border-black shadow-neo-xs -translate-x-0.5 -translate-y-0.5'
+              : 'border-transparent text-slate-800 hover:bg-white'
           }`}
         >
-          👷 I provide services (Worker)
+          👷 Provide Services (Worker)
         </button>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && (
-          <div className="p-3 bg-rose-50 border border-rose-200 rounded-lg text-xs text-rose-600">
-            {error}
+          <div className="p-3 bg-rose-100 border-2 border-rose-600 rounded-xl text-xs font-bold text-rose-950 shadow-neo-xs">
+            ⚠️ {error}
           </div>
         )}
 
@@ -99,9 +107,9 @@ const Register = () => {
         />
 
         <Input
-          label="Mobile Number"
+          label="Mobile Phone Number"
           type="tel"
-          placeholder="+91 98765-43210"
+          placeholder="+91 9876543210"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           required
@@ -110,10 +118,10 @@ const Register = () => {
         {role === 'worker' && (
           <Input
             label="Labour Cooperative / Federation Name"
-            placeholder="e.g. Pune Labour Cooperative Society"
+            placeholder="e.g. Maharashtra Labour Cooperative Federation"
             value={cooperative}
             onChange={(e) => setCooperative(e.target.value)}
-            helperText="Must be a registered cooperative society"
+            helperText="Registered cooperative society ensuring collective social security"
             required
           />
         )}
@@ -127,14 +135,14 @@ const Register = () => {
           required
         />
 
-        <Button type="submit" variant="primary" className="w-full" disabled={loading}>
-          {loading ? 'Creating Account...' : `Register as ${role === 'customer' ? 'Customer' : 'Worker'}`}
+        <Button type="submit" variant="secondary" fullWidth size="lg" disabled={loading} className="font-extrabold">
+          {loading ? 'Creating Account...' : `Register as ${role === 'customer' ? 'Customer' : 'Cooperative Worker ⚡'}`}
         </Button>
       </form>
 
-      <div className="mt-6 text-center text-xs text-slate-500">
+      <div className="mt-6 text-center text-xs font-bold text-slate-800">
         Already have an account?{' '}
-        <Link to="/login" className="font-semibold text-sky-600 hover:text-sky-700">
+        <Link to="/login" className="font-extrabold text-teal-700 hover:underline">
           Sign In
         </Link>
       </div>

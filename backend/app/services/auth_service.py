@@ -5,11 +5,11 @@ and password hashing. Creates role-specific profiles (Customer/Worker)
 on registration. No direct DB access — delegates to repositories.
 """
 
+import bcrypt
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 from jose import JWTError, jwt
-from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
 from app.core.config import settings
@@ -27,17 +27,21 @@ from app.schemas.auth import LoginRequest, RegisterRequest, TokenResponse
 # Password Hashing
 # ---------------------------------------------------------------------------
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
 
 def hash_password(plain_password: str) -> str:
     """Hash a plain-text password with bcrypt."""
-    return pwd_context.hash(plain_password)
+    pw_bytes = plain_password.encode("utf-8")[:72]
+    salt = bcrypt.gensalt()
+    return bcrypt.hashpw(pw_bytes, salt).decode("utf-8")
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Compare a plain-text password against its bcrypt hash."""
-    return pwd_context.verify(plain_password, hashed_password)
+    try:
+        pw_bytes = plain_password.encode("utf-8")[:72]
+        return bcrypt.checkpw(pw_bytes, hashed_password.encode("utf-8"))
+    except Exception:
+        return False
 
 
 # ---------------------------------------------------------------------------
@@ -160,18 +164,22 @@ def register_user(db: Session, data: RegisterRequest) -> TokenResponse:
 # ---------------------------------------------------------------------------
 
 def login_user(db: Session, data: LoginRequest) -> TokenResponse:
-    """Authenticate a user by phone + password and return a JWT.
+    """Authenticate a user by phone or email + password and return a JWT.
 
     Raises:
         UnauthorizedException: Invalid credentials or inactive account.
     """
-    user = user_repository.get_user_by_phone(db, data.phone)
+    user = None
+    if data.phone:
+        user = user_repository.get_user_by_phone(db, data.phone)
+    if not user and data.email:
+        user = user_repository.get_user_by_email(db, data.email)
 
     if not user or not user.hashed_password:
-        raise UnauthorizedException("Invalid phone number or password.")
+        raise UnauthorizedException("Invalid credentials.")
 
     if not verify_password(data.password, user.hashed_password):
-        raise UnauthorizedException("Invalid phone number or password.")
+        raise UnauthorizedException("Invalid credentials.")
 
     if not user.is_active:
         raise UnauthorizedException("This account has been deactivated.")

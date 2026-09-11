@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
 /**
- * Modal Component — SevaSangam
- * Accessible dialog modal with backdrop blur, escape listener, and cooperative theme styling.
+ * Neo-Brutalist Modal Component — SevaSangam
+ * Bold black borders, hard offset drop shadows, and high contrast.
  */
 const Modal = ({
   isOpen,
@@ -50,48 +50,42 @@ const Modal = ({
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-black/70 backdrop-blur-xs transition-opacity"
         onClick={closeOnBackdrop ? onClose : undefined}
       />
 
       {/* Dialog Window */}
       <div
         className={`
-          relative w-full bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden
-          transition-all duration-200 z-10
+          relative w-full bg-white rounded-2xl shadow-neo-2xl border-3 border-black overflow-hidden
+          transition-all duration-200 z-10 animate-in fade-in zoom-in-95
           ${sizes[size] || sizes.md}
         `}
       >
-        {/* Header */}
-        <div className="flex items-start justify-between px-6 py-5 border-b border-slate-100 bg-slate-50/50">
+        {/* Header Ribbon */}
+        <div className="flex items-start justify-between px-6 py-4 border-b-2 border-black bg-yellow-300">
           <div>
-            <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+            <h3 className="text-lg font-extrabold text-black tracking-tight">{title}</h3>
             {subtitle && (
-              <p className="mt-0.5 text-xs text-slate-500">{subtitle}</p>
+              <p className="mt-0.5 text-xs font-semibold text-slate-800">{subtitle}</p>
             )}
           </div>
           <button
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg p-1.5 transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-lg bg-white border-2 border-black shadow-neo-xs flex items-center justify-center text-black font-bold hover:bg-rose-400 hover:text-white transition-all cursor-pointer"
           >
-            <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-              <path
-                fillRule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+            ✕
           </button>
         </div>
 
         {/* Body Content */}
-        <div className="px-6 py-5 max-h-[72vh] overflow-y-auto">{children}</div>
+        <div className="px-6 py-6 max-h-[72vh] overflow-y-auto">{children}</div>
 
         {/* Optional Footer */}
         {footer && (
-          <div className="flex items-center justify-end gap-3 px-6 py-4 bg-slate-50/80 border-t border-slate-100">
+          <div className="flex items-center justify-end gap-3 px-6 py-4 bg-slate-50 border-t-2 border-black">
             {footer}
           </div>
         )}
