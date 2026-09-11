@@ -399,7 +399,7 @@ const WorkerLayout = () => {
 
         {/* ── Main Content ── */}
         <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-8">
-          <Outlet />
+          <Outlet context={{ availability, setAvailability }} />
         </main>
       </div>
     </div>

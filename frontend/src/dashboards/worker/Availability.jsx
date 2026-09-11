@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import { Button, Badge } from '../../components/ui';
 
 /**
@@ -82,7 +83,8 @@ const Toggle = ({ id, checked, onChange, label }) => (
 
 // ── Main Component ─────────────────────────────────────────────────
 const Availability = () => {
-  const [status, setStatus]           = useState('available');
+  const { availability }              = useOutletContext() || {};
+  const status                        = availability || 'available';
   const [schedule, setSchedule]       = useState(INIT_SCHEDULE);
   const [emergency, setEmergency]     = useState(false);
   const [leaveStart, setLeaveStart]   = useState('');
@@ -149,32 +151,12 @@ const Availability = () => {
         </div>
       </div>
 
-      {/* ── Overall Status ── */}
+      {/* ── Emergency Availability ── */}
       <Section
-        title="Current Status"
-        subtitle="This controls whether you appear as available for new booking requests right now."
+        title="Emergency / On-Demand Availability"
+        subtitle="When enabled, customers can book you for urgent same-day requests (premium rate applies)."
       >
-        <div className="flex flex-wrap gap-3">
-          {STATUS_OPTIONS.map((opt) => (
-            <button
-              key={opt.value}
-              id={`status-btn-${opt.value}`}
-              type="button"
-              onClick={() => setStatus(opt.value)}
-              className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border text-sm font-semibold transition-all cursor-pointer ${
-                status === opt.value
-                  ? `${opt.bg} ${opt.border} ${opt.text} shadow-sm ring-2 ring-offset-1 ring-primary-300`
-                  : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <span className={`w-2.5 h-2.5 rounded-full ${opt.color} ${status === opt.value && opt.value === 'available' ? 'animate-pulse' : ''}`} />
-              {opt.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Emergency availability */}
-        <div className="mt-5 p-4 rounded-xl bg-rose-50/60 border border-rose-100 flex items-center justify-between gap-4">
+        <div className="p-4 rounded-xl bg-rose-50/60 border border-rose-100 flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-rose-800">Emergency / On-Demand Availability</p>
             <p className="text-xs text-rose-600/80 mt-0.5">
