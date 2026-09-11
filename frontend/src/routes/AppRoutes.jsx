@@ -22,6 +22,8 @@ import CustomerServices from '../dashboards/customer/Services';
 import CustomerWorkerProfile from '../dashboards/customer/WorkerProfile';
 import BookingHistory from '../dashboards/customer/BookingHistory';
 import BookingFlow from '../dashboards/customer/BookingFlow';
+import CustomerProfile from '../dashboards/customer/Profile';
+import CustomerEmergencyServices from '../dashboards/customer/EmergencyServices';
 
 import WorkerDashboard from '../dashboards/worker/index';
 import WorkerProfilePage from '../dashboards/worker/Profile';
@@ -75,6 +77,10 @@ const AppRoutes = () => {
         <Route path="bookings" element={<BookingHistory />} />
         <Route path="book" element={<BookingFlow />} />
         <Route path="book/:serviceId" element={<BookingFlow />} />
+        <Route path="booking" element={<BookingFlow />} />
+        <Route path="profile" element={<CustomerProfile />} />
+        <Route path="emergency-services" element={<CustomerEmergencyServices />} />
+        <Route path="emergency" element={<CustomerEmergencyServices />} />
       </Route>
 
       {/* Worker Dashboard (Protected + Role-restricted) */}

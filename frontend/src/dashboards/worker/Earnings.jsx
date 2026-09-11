@@ -119,7 +119,7 @@ const Earnings = () => {
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-              Total Net Payout
+              Total Worker Earnings
             </span>
             <div className="p-2 rounded-xl bg-emerald-50 text-emerald-700">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -131,7 +131,7 @@ const Earnings = () => {
             ₹{metrics.netTotal.toLocaleString('en-IN')}
           </p>
           <p className="text-[11px] text-emerald-600 font-semibold mt-1">
-            85% direct worker share
+            After cooperative admin (5%)
           </p>
         </div>
 
@@ -155,15 +155,15 @@ const Earnings = () => {
           </p>
         </div>
 
-        {/* Welfare Contribution */}
+        {/* T&M / Welfare Contribution */}
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-              Welfare Pool Contribution
+              T&M Earnings
             </span>
             <div className="p-2 rounded-xl bg-amber-50 text-amber-700">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
               </svg>
             </div>
           </div>
@@ -171,7 +171,7 @@ const Earnings = () => {
             ₹{metrics.totalWelfareFund.toLocaleString('en-IN')}
           </p>
           <p className="text-[11px] text-amber-700 font-semibold mt-1">
-            10% pool • PMSBY Insurance Active
+            🛠️ Tools & Materials (20% of gross)
           </p>
         </div>
 
@@ -207,21 +207,24 @@ const Earnings = () => {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
           <div className="bg-white/80 p-3 rounded-xl border border-slate-200">
-            <span className="text-primary-700 font-bold text-base block">85%</span>
-            <span className="font-semibold text-slate-800">Worker Payout</span>
-            <p className="text-[11px] text-slate-500 mt-0.5">Credited directly to worker's UPI / Bank account upon job completion.</p>
+            <span className="text-amber-600 font-bold text-base block">+20%</span>
+            <span className="font-semibold text-slate-800">Tools &amp; Materials Bonus</span>
+            <p className="text-[11px] text-slate-500 mt-0.5">Added to gross fare when worker supplies tools/materials. 20% of gross credited directly to the worker's base amount.</p>
           </div>
           <div className="bg-white/80 p-3 rounded-xl border border-slate-200">
-            <span className="text-amber-700 font-bold text-base block">10%</span>
-            <span className="font-semibold text-slate-800">Cooperative Welfare Pool</span>
-            <p className="text-[11px] text-slate-500 mt-0.5">Funds accident insurance (PMSBY), health checkups, and children's education grants.</p>
+            <span className="text-rose-600 font-bold text-base block">−5%</span>
+            <span className="font-semibold text-slate-800">Cooperative Admin</span>
+            <p className="text-[11px] text-slate-500 mt-0.5">5% of Worker Base (Gross + T&M) strictly covers server infrastructure, GPS dispatch, and SMS gateways.</p>
           </div>
           <div className="bg-white/80 p-3 rounded-xl border border-slate-200">
-            <span className="text-slate-700 font-bold text-base block">5%</span>
-            <span className="font-semibold text-slate-800">Platform Admin</span>
-            <p className="text-[11px] text-slate-500 mt-0.5">Strictly covers server infrastructure, GPS dispatch, and SMS gateways.</p>
+            <span className="text-emerald-700 font-bold text-base block">= Net Pay</span>
+            <span className="font-semibold text-slate-800">Worker Gets</span>
+            <p className="text-[11px] text-slate-500 mt-0.5">Worker Base − Admin 5%. Credited directly to worker's UPI / Bank account upon job completion.</p>
           </div>
         </div>
+        <p className="mt-3 text-[11px] text-slate-500 font-medium">
+          Formula: Worker Base = Gross Fare + T&M (20% if applicable) &nbsp;|&nbsp; Admin = Worker Base × 5% &nbsp;|&nbsp; Worker Gets = Worker Base − Admin
+        </p>
       </div>
 
       {/* ── Table & Filter Header ── */}
@@ -301,8 +304,9 @@ const Earnings = () => {
                   <th className="py-3.5 px-4">Customer</th>
                   <th className="py-3.5 px-4">Completion Date</th>
                   <th className="py-3.5 px-4">Gross Fare</th>
-                  <th className="py-3.5 px-4">Welfare Pool (10%)</th>
-                  <th className="py-3.5 px-4">Net Payout (85%)</th>
+                  <th className="py-3.5 px-4">Tools &amp; Materials (20%)</th>
+                  <th className="py-3.5 px-4">Cooperative Admin (5%)</th>
+                  <th className="py-3.5 px-4">Total Amount (Worker Gets)</th>
                   <th className="py-3.5 px-4">Payout Status</th>
                   <th className="py-3.5 px-4 text-right">Method</th>
                 </tr>
@@ -343,11 +347,20 @@ const Earnings = () => {
                     <td className="py-3.5 px-4 font-medium text-slate-600">
                       ₹{job.gross}
                     </td>
-                    <td className="py-3.5 px-4 text-amber-700 font-medium">
-                      ₹{job.welfareContribution}
+                    <td className="py-3.5 px-4">
+                      {job.toolsAmt > 0 ? (
+                        <span className="inline-flex items-center gap-1 font-semibold text-amber-700">
+                          🛠️ +₹{job.toolsAmt}
+                        </span>
+                      ) : (
+                        <span className="text-slate-400 font-medium">₹0 <span className="text-[10px]">—</span></span>
+                      )}
+                    </td>
+                    <td className="py-3.5 px-4 text-rose-600 font-medium">
+                      −₹{job.adminAmt}
                     </td>
                     <td className="py-3.5 px-4 font-bold text-emerald-700 text-sm">
-                      ₹{job.workerPayout}
+                      ₹{job.workerGets}
                     </td>
                     <td className="py-3.5 px-4">
                       <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">

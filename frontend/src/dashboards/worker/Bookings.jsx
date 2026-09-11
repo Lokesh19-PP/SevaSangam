@@ -457,6 +457,60 @@ const Bookings = () => {
                       {booking.notes}
                     </div>
                   )}
+
+                  {/* Tools & Materials Section */}
+                  <div className={`rounded-xl border p-3 ${
+                    booking.toolsMaterialsRequired
+                      ? 'bg-amber-50 border-amber-300'
+                      : 'bg-slate-50 border-slate-200'
+                  }`}>
+                    <div className="flex items-start gap-2">
+                      <span className="text-base shrink-0">🛠️</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-slate-900">
+                          Tools &amp; Materials Required
+                        </p>
+                        <p className={`text-[11px] font-semibold mt-0.5 ${
+                          booking.toolsMaterialsRequired ? 'text-amber-700' : 'text-slate-500'
+                        }`}>
+                          Status:{' '}
+                          <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold ${
+                            booking.toolsMaterialsRequired
+                              ? 'bg-amber-100 text-amber-800'
+                              : 'bg-slate-200 text-slate-600'
+                          }`}>
+                            {booking.toolsMaterialsRequired ? 'YES' : 'NO'}
+                          </span>
+                        </p>
+                        {booking.toolsMaterialsRequired ? (
+                          <p className="text-[11px] text-amber-700 mt-1 font-medium">
+                            ⚠️ Bring the required tools/materials for this service.
+                          </p>
+                        ) : (
+                          <p className="text-[11px] text-slate-500 mt-1">
+                            Customer will provide the required tools/materials.
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    {/* Fare breakdown when T&M is ON */}
+                    {booking.toolsMaterialsRequired && (
+                      <div className="mt-2.5 pt-2.5 border-t border-amber-200 space-y-1 text-xs">
+                        <div className="flex justify-between text-slate-700">
+                          <span>Base Fare</span>
+                          <span className="font-semibold">₹{booking.amount}</span>
+                        </div>
+                        <div className="flex justify-between text-amber-700 font-semibold">
+                          <span>🛠️ Tools &amp; Materials Charge</span>
+                          <span>+₹{Math.round(booking.amount * 0.15)}</span>
+                        </div>
+                        <div className="flex justify-between font-bold text-slate-900 pt-1 border-t border-amber-200">
+                          <span>Worker Payment</span>
+                          <span>₹{booking.amount + Math.round(booking.amount * 0.15)}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </CardContent>
 
                 <CardFooter className="px-5 py-3.5 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between gap-3">
@@ -506,6 +560,7 @@ const Bookings = () => {
                   <th className="py-3.5 px-4">Customer</th>
                   <th className="py-3.5 px-4">Date</th>
                   <th className="py-3.5 px-4">Amount</th>
+                  <th className="py-3.5 px-4">Tools &amp; Materials</th>
                   <th className="py-3.5 px-4">Status</th>
                   <th className="py-3.5 px-4 text-right">Payment</th>
                 </tr>
@@ -545,6 +600,17 @@ const Bookings = () => {
                     </td>
                     <td className="py-3.5 px-4 font-bold text-slate-900">
                       ₹{b.amount}
+                    </td>
+                    <td className="py-3.5 px-4">
+                      {b.toolsMaterialsRequired ? (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                          🛠️ Yes
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-500 border border-slate-200">
+                          No
+                        </span>
+                      )}
                     </td>
                     <td className="py-3.5 px-4">
                       <Badge

@@ -74,7 +74,7 @@ const CustomerLayout = () => {
     },
     {
       label: 'Emergency',
-      path: '/customer/emergency',
+      path: '/customer/emergency-services',
       isEmergency: true,
       badge: '24x7',
       icon: (
@@ -154,7 +154,7 @@ const CustomerLayout = () => {
           {/* Right Actions: Emergency CTA, Language Selector, Notifications, Profile Menu */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             {/* Quick Emergency Button */}
-            <Link to="/customer/emergency" className="hidden sm:inline-flex">
+            <Link to="/customer/booking?emergency=true" className="hidden sm:inline-flex">
               <Button
                 variant="danger"
                 size="sm"
