@@ -6,7 +6,7 @@ import useAuth from '../hooks/useAuth';
  * Role-Based Access Control (RBAC) route wrapper.
  * Ensures user only accesses dashboards/pages authorized for their role.
  */
-const RoleRoute = ({ allowedRoles = [], children }) => {
+const RoleRoute = ({ allowedRoles, requiredRole, role, children }) => {
   const { user, isAuthenticated, loading } = useAuth();
 
   if (loading) {
@@ -17,12 +17,14 @@ const RoleRoute = ({ allowedRoles = [], children }) => {
     );
   }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated || !user) {
     return <Navigate to="/login" replace />;
   }
 
+  const rawRoles = allowedRoles || requiredRole || role;
+  const roles = Array.isArray(rawRoles) ? rawRoles : (rawRoles ? [rawRoles] : []);
   const userRole = user?.role;
-  const isAuthorized = allowedRoles.includes(userRole);
+  const isAuthorized = roles.length === 0 || roles.includes(userRole);
 
   if (!isAuthorized) {
     // Redirect to user's authorized role dashboard, or home if unknown

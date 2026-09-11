@@ -6,7 +6,7 @@ import useAuth from '../hooks/useAuth';
  * Ensures user is authenticated before accessing protected routes.
  */
 const ProtectedRoute = ({ children, redirectPath = '/login' }) => {
-  const { isAuthenticated, loading } = useAuth();
+  const { user, isAuthenticated, loading } = useAuth();
   const location = useLocation();
 
   if (loading) {
@@ -17,7 +17,7 @@ const ProtectedRoute = ({ children, redirectPath = '/login' }) => {
     );
   }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated || !user) {
     return <Navigate to={redirectPath} state={{ from: location }} replace />;
   }
 
