@@ -69,13 +69,24 @@ export const LanguageProvider = ({ children }) => {
     }
   }, []);
 
+  const t = useCallback(
+    (key, options) => {
+      return i18n.t(key, options);
+    },
+    // re-trigger when currentLanguage changes
+    [currentLanguage]
+  );
+
   const value = useMemo(
     () => ({
       currentLanguage,
+      language: currentLanguage,
+      setLanguage: changeLanguage,
       changeLanguage,
       supportedLanguages: SUPPORTED_LANGUAGES,
+      t,
     }),
-    [currentLanguage, changeLanguage]
+    [currentLanguage, changeLanguage, t]
   );
 
   return (
