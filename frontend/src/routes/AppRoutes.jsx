@@ -30,6 +30,7 @@ import WorkerBookings from '../dashboards/worker/Bookings';
 import WorkerEarnings from '../dashboards/worker/Earnings';
 import WorkerRatings from '../dashboards/worker/Ratings';
 import AdminDashboard from '../dashboards/admin/index';
+import WorkerVerification from '../dashboards/admin/WorkerVerification';
 
 // Route Guards
 import ProtectedRoute from './ProtectedRoute';
@@ -105,6 +106,7 @@ const AppRoutes = () => {
         }
       >
         <Route index element={<AdminDashboard />} />
+        <Route path="verification" element={<WorkerVerification />} />
       </Route>
 
       {/* 404 Catch-All */}

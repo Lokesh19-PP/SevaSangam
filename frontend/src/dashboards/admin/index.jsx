@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Badge from '../../components/ui/Badge';
 import Button from '../../components/ui/Button';
 
@@ -30,11 +31,14 @@ const AdminDashboard = () => {
           <p className="text-2xl font-bold text-emerald-600 mt-1">0.94</p>
           <span className="text-[10px] text-slate-400">Target: &gt; 0.90 (Balanced)</span>
         </div>
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs">
+        <Link
+          to="/admin/verification"
+          className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs hover:border-amber-300 hover:shadow-sm transition-all block"
+        >
           <span className="text-xs font-semibold text-slate-400 uppercase">Pending Verifications</span>
-          <p className="text-2xl font-bold text-amber-600 mt-1">7</p>
-          <span className="text-[10px] text-amber-600 font-medium">Requires Admin OCR check</span>
-        </div>
+          <p className="text-2xl font-bold text-amber-600 mt-1">4</p>
+          <span className="text-[10px] text-amber-600 font-medium">Review Verification Queue &rarr;</span>
+        </Link>
         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs">
           <span className="text-xs font-semibold text-slate-400 uppercase">Total Completed Bookings</span>
           <p className="text-2xl font-bold text-slate-900 mt-1">1,247</p>
@@ -44,9 +48,17 @@ const AdminDashboard = () => {
 
       {/* Pending Certificate Verification Queue */}
       <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
-        <h2 className="text-base font-bold text-slate-900 mb-4">
-          Pending Worker Skill & Certificate Verifications
-        </h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-base font-bold text-slate-900">
+            Pending Worker Skill & Certificate Verifications
+          </h2>
+          <Link
+            to="/admin/verification"
+            className="text-xs font-semibold text-primary-700 hover:text-primary-800 hover:underline"
+          >
+            View Full Queue &rarr;
+          </Link>
+        </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
