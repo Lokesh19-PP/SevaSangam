@@ -395,9 +395,30 @@ export async function getUpcomingBookings(params = {}) {
 // ============================================================================
 
 export async function login(credentials = {}) {
-  const user =
-    mockUsers.find((u) => u.email === credentials.email || u.phone === credentials.phone) ||
-    mockUsers[0];
+  let user = mockUsers.find(
+    (u) => u.email === credentials.email || (credentials.phone && u.phone === credentials.phone)
+  );
+
+  // If role is explicitly provided, match user by that role
+  if (!user && credentials.role) {
+    user = mockUsers.find((u) => u.role === credentials.role);
+  }
+
+  // If email contains role keyword (e.g. worker@..., admin@..., customer@...)
+  if (!user && credentials.email) {
+    if (credentials.email.toLowerCase().includes('admin')) {
+      user = mockUsers.find((u) => u.role === 'admin');
+    } else if (credentials.email.toLowerCase().includes('worker')) {
+      user = mockUsers.find((u) => u.role === 'worker');
+    } else if (credentials.email.toLowerCase().includes('customer')) {
+      user = mockUsers.find((u) => u.role === 'customer');
+    }
+  }
+
+  if (!user) {
+    user = mockUsers[0];
+  }
+
   const token = `sevasangam_mock_jwt_${user.id}_${Date.now()}`;
   return respond({ user, token, role: user.role });
 }

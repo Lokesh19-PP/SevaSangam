@@ -18,15 +18,18 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || `/${selectedRole}`;
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
     try {
-      await login({ email, password, role: selectedRole });
-      navigate(from, { replace: true });
+      const loggedUser = await login({ email, password, role: selectedRole });
+      const targetRole = loggedUser?.role || selectedRole;
+      const redirectPath =
+        location.state?.from?.pathname && location.state.from.pathname.startsWith(`/${targetRole}`)
+          ? location.state.from.pathname
+          : `/${targetRole}`;
+      navigate(redirectPath, { replace: true });
     } catch (err) {
       setError(err.message || 'Login failed');
     }
@@ -34,8 +37,13 @@ const Login = () => {
 
   const handleQuickLogin = async (role) => {
     setSelectedRole(role);
-    await login({ email: `${role}@sevasangam.coop`, password: 'password123', role });
-    navigate(`/${role}`, { replace: true });
+    try {
+      const loggedUser = await login({ email: `${role}@sevasangam.coop`, password: 'password123', role });
+      const targetRole = loggedUser?.role || role;
+      navigate(`/${targetRole}`, { replace: true });
+    } catch (err) {
+      setError(err.message || 'Login failed');
+    }
   };
 
   return (

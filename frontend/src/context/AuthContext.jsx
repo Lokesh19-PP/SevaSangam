@@ -78,8 +78,11 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     try {
       const response = await authApi.login(credentials);
-      // mockApi wraps in { success, data: { user, token, role } }
-      const { user: loggedInUser, token } = response.data || response;
+      let { user: loggedInUser, token } = response.data || response;
+
+      if (loggedInUser && credentials?.role) {
+        loggedInUser = { ...loggedInUser, role: credentials.role };
+      }
 
       persistSession(token, loggedInUser);
       setUser(loggedInUser);
