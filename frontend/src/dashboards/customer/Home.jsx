@@ -104,7 +104,7 @@ const CustomerHome = () => {
               </Button>
             </Link>
 
-            <Link to="/customer/emergency">
+            <Link to="/customer/booking?emergency=true">
               <Button
                 variant="danger"
                 size="md"

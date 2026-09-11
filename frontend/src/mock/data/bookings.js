@@ -23,6 +23,7 @@ export const bookings = [
     paymentStatus: 'pending',
     notes: 'Urgent: Main bathroom flush valve leakage flooding master bedroom',
     ratingSubmitted: false,
+    toolsMaterialsRequired: false,
   },
   {
     id: 'bkg_010',
@@ -44,6 +45,7 @@ export const bookings = [
     paymentStatus: 'pending',
     notes: 'New kitchen sink mixer tap fitting and water filter connection',
     ratingSubmitted: false,
+    toolsMaterialsRequired: false,
   },
   {
     id: 'bkg_001',
@@ -65,6 +67,7 @@ export const bookings = [
     paymentStatus: 'paid',
     notes: 'Kitchen sink drain pipe leak and tap washer replacement',
     ratingSubmitted: true,
+    toolsMaterialsRequired: true,
   },
   {
     id: 'bkg_002',
@@ -86,6 +89,7 @@ export const bookings = [
     paymentStatus: 'pending',
     notes: 'Main MCB tripping issue and 3 switchboard replacements in bedroom',
     ratingSubmitted: false,
+    toolsMaterialsRequired: false,
   },
   {
     id: 'bkg_003',
@@ -107,6 +111,7 @@ export const bookings = [
     paymentStatus: 'paid',
     notes: 'Kitchen deep scrub and two bathroom descaling',
     ratingSubmitted: true,
+    toolsMaterialsRequired: false,
   },
   {
     id: 'bkg_004',
@@ -128,6 +133,7 @@ export const bookings = [
     paymentStatus: 'pending',
     notes: 'EMERGENCY: Burst main pipe behind bathroom wall flooded corridor',
     ratingSubmitted: false,
+    toolsMaterialsRequired: false,
   },
   {
     id: 'bkg_005',
@@ -149,6 +155,7 @@ export const bookings = [
     paymentStatus: 'paid',
     notes: 'Daytime mobility assistance and post-knee surgery support',
     ratingSubmitted: true,
+    toolsMaterialsRequired: true,
   },
   {
     id: 'bkg_006',
@@ -170,6 +177,7 @@ export const bookings = [
     paymentStatus: 'pending',
     notes: 'Inverter split AC cooling coil inspection and deep cleaning',
     ratingSubmitted: false,
+    toolsMaterialsRequired: false,
   },
   {
     id: 'bkg_007',
@@ -191,6 +199,7 @@ export const bookings = [
     paymentStatus: 'refunded',
     notes: 'Rescheduled by customer due to travel',
     ratingSubmitted: false,
+    toolsMaterialsRequired: false,
   },
   {
     id: 'bkg_008',
@@ -212,5 +221,6 @@ export const bookings = [
     paymentStatus: 'paid',
     notes: 'Pruning ornamental plants, repotting 8 pots, organic compost addition',
     ratingSubmitted: true,
+    toolsMaterialsRequired: false,
   },
 ];

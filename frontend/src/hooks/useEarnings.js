@@ -38,11 +38,17 @@ const useEarnings = () => {
     }
   }, []);
 
-  // Compute metrics: gross amount, net worker payout (85%), cooperative welfare fee (10%), platform fee (5%)
+  // Compute metrics using the T&M-aware cooperative payout formula:
+  //   Tools & Materials amount = gross × 20% (only if toolsMaterialsRequired === true)
+  //   Worker Base             = gross + toolsAmt
+  //   Cooperative Admin (5%) = workerBase × 5%
+  //   Worker Gets            = workerBase − adminAmt
   const metrics = useMemo(() => {
     const list = completedBookings || [];
     let grossTotal = 0;
+    let netWorkerTotal = 0;
     let thisMonthGross = 0;
+    let thisMonthNet = 0;
     const now = new Date();
     const currentMonth = now.getMonth();
     const currentYear = now.getFullYear();
@@ -51,43 +57,50 @@ const useEarnings = () => {
       const gross = Number(job.amount) || 0;
       grossTotal += gross;
 
+      // T&M surcharge: worker earns 20% of gross when tools/materials were provided
+      const toolsAmt = job.toolsMaterialsRequired ? Math.round(gross * 0.20) : 0;
+      const workerBase = gross + toolsAmt;
+
+      // Cooperative admin deduction (5% of worker base)
+      const adminAmt = Math.round(workerBase * 0.05);
+      const workerGets = workerBase - adminAmt;
+      netWorkerTotal += workerGets;
+
       // Check if job completed this month
       if (job.completedDate || job.scheduledDate) {
         const d = new Date(job.completedDate || job.scheduledDate);
         if (d.getMonth() === currentMonth && d.getFullYear() === currentYear) {
           thisMonthGross += gross;
+          thisMonthNet += workerGets;
         }
       }
-
-      // Cooperative transparent split:
-      // 85% directly to worker
-      // 10% cooperative welfare & health/accident insurance pool (PMSBY/PMJJBY)
-      // 5% platform administrative operations
-      const workerPayout = Math.round(gross * 0.85);
-      const welfareContribution = Math.round(gross * 0.10);
-      const platformFee = Math.round(gross * 0.05);
 
       return {
         ...job,
         gross,
-        workerPayout,
-        welfareContribution,
-        platformFee,
+        toolsAmt,
+        workerBase,
+        adminAmt,
+        workerGets,
+        // Legacy alias kept for backwards compat with any other consumer
+        workerPayout: workerGets,
+        welfareContribution: toolsAmt,
+        platformFee: adminAmt,
         payoutStatus: job.paymentStatus === 'paid' ? 'Paid' : 'Processing',
         payoutMethod: 'UPI / Direct Bank Transfer',
       };
     });
 
-    const netTotal = Math.round(grossTotal * 0.85);
-    const thisMonthNet = Math.round(thisMonthGross * 0.85);
-    const totalWelfareFund = Math.round(grossTotal * 0.10);
-
     return {
       totalJobs: list.length,
       grossTotal,
-      netTotal,
+      netTotal: netWorkerTotal,
       thisMonthNet,
-      totalWelfareFund,
+      // totalWelfareFund kept for metric card; represents total T&M amounts earned this period
+      totalWelfareFund: list.reduce((sum, job) => {
+        const gross = Number(job.amount) || 0;
+        return sum + (job.toolsMaterialsRequired ? Math.round(gross * 0.20) : 0);
+      }, 0),
       jobsWithPayout,
     };
   }, [completedBookings]);

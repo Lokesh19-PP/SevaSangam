@@ -136,6 +136,18 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   // ---------------------------------------------------------------------------
+  // Update User — updates local and persisted session state
+  // ---------------------------------------------------------------------------
+  const updateUser = useCallback((updatedFields) => {
+    setUser((prev) => {
+      const nextUser = { ...prev, ...updatedFields };
+      const token = localStorage.getItem(TOKEN_KEY) || 'mock_session_token';
+      persistSession(token, nextUser);
+      return nextUser;
+    });
+  }, []);
+
+  // ---------------------------------------------------------------------------
   // Context value (memoised to avoid needless re-renders)
   // ---------------------------------------------------------------------------
   const value = useMemo(
@@ -148,8 +160,9 @@ export const AuthProvider = ({ children }) => {
       login,
       register,
       logout,
+      updateUser,
     }),
-    [user, isAuthenticated, loading, error, login, register, logout]
+    [user, isAuthenticated, loading, error, login, register, logout, updateUser]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

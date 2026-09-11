@@ -25,7 +25,9 @@ const Booking = () => {
   const [scheduledDate, setScheduledDate] = useState('');
   const [address, setAddress] = useState('');
   const [notes, setNotes] = useState('');
-  const [isEmergency, setIsEmergency] = useState(false);
+  const [isEmergency, setIsEmergency] = useState(
+    searchParams.get('emergency') === 'true'
+  );
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
