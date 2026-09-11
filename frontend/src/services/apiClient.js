@@ -94,13 +94,11 @@ import mockApi, {
 
 const API_BASE_URL =
   (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL) ||
-  'http://localhost:8000/api/v1';
+  'http://localhost:8000/api';
 
-// Default to mock API in development unless explicitly set to 'false'
+// Default to real backend API unless explicitly configured to 'true' in .env
 const USE_MOCK_API =
-  (typeof import.meta === 'undefined' || !import.meta.env)
-    ? true
-    : import.meta.env.VITE_USE_MOCK_API !== 'false';
+  typeof import.meta !== 'undefined' && import.meta.env?.VITE_USE_MOCK_API === 'true';
 
 /**
  * Retrieve auth token from browser storage.

@@ -1,6 +1,6 @@
 /**
- * Input Component — SevaSangam
- * Form input with label, error states, icons, and cooperative theme focus rings.
+ * Neo-Brutalist Input Component — SevaSangam
+ * Bold black borders, tactile focus lift, and high readability.
  */
 const Input = ({
   label,
@@ -26,15 +26,15 @@ const Input = ({
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-slate-700 mb-1.5"
+          className="block text-sm font-bold text-black mb-1.5"
         >
-          {label} {required && <span className="text-rose-500 font-semibold">*</span>}
+          {label} {required && <span className="text-rose-600 font-extrabold">*</span>}
         </label>
       )}
 
-      <div className="relative rounded-lg shadow-2xs">
+      <div className="relative">
         {leftIcon && (
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+          <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-700">
             {leftIcon}
           </div>
         )}
@@ -49,16 +49,16 @@ const Input = ({
           disabled={disabled}
           required={required}
           className={`
-            w-full rounded-lg border text-sm transition-all duration-150
-            focus:outline-none focus:ring-2 focus:ring-offset-0
+            w-full rounded-xl border-2 text-sm font-medium transition-all duration-150
+            focus:outline-none focus:shadow-neo focus:-translate-x-0.5 focus:-translate-y-0.5
             disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed
-            ${leftIcon ? 'pl-10' : 'pl-3.5'}
-            ${rightIcon ? 'pr-10' : 'pr-3.5'}
-            py-2.5
+            ${leftIcon ? 'pl-11' : 'pl-4'}
+            ${rightIcon ? 'pr-11' : 'pr-4'}
+            py-3 bg-white text-black
             ${
               error
-                ? 'border-rose-300 text-rose-900 bg-rose-50/20 focus:border-rose-500 focus:ring-rose-400/30'
-                : 'border-slate-300 text-slate-900 bg-white hover:border-slate-400 focus:border-primary-600 focus:ring-primary-500/20'
+                ? 'border-rose-600 bg-rose-50/40 focus:border-rose-600 text-rose-950 shadow-neo-xs'
+                : 'border-black hover:border-black focus:border-black shadow-neo-sm'
             }
             ${className}
           `}
@@ -66,14 +66,14 @@ const Input = ({
         />
 
         {rightIcon && (
-          <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
+          <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-700">
             {rightIcon}
           </div>
         )}
       </div>
 
       {error ? (
-        <p className="mt-1.5 text-xs font-medium text-rose-600 flex items-center gap-1">
+        <p className="mt-1.5 text-xs font-bold text-rose-600 flex items-center gap-1">
           <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
             <path
               fillRule="evenodd"
@@ -84,7 +84,7 @@ const Input = ({
           {error}
         </p>
       ) : helperText ? (
-        <p className="mt-1.5 text-xs text-slate-500">{helperText}</p>
+        <p className="mt-1.5 text-xs font-medium text-slate-600">{helperText}</p>
       ) : null}
     </div>
   );

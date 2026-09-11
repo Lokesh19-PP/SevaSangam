@@ -1,6 +1,6 @@
 /**
- * Button Component — SevaSangam
- * Reusable UI button built on the "Trust + Service + Technology + Community" theme.
+ * Neo-Brutalist Button Component — SevaSangam
+ * Bold borders, high tactile spring animations, hard box-shadows, and punchy colorways.
  */
 const Button = ({
   children,
@@ -17,41 +17,49 @@ const Button = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none cursor-pointer';
+    'inline-flex items-center justify-center font-bold tracking-tight rounded-xl border-2 border-black select-none cursor-pointer transition-all duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none';
 
   const variants = {
-    // Primary: Deep Teal (Trust & Cooperation)
+    // Primary: Neo Teal
     primary:
-      'bg-primary-700 text-white hover:bg-primary-800 active:bg-primary-900 focus:ring-primary-500 shadow-xs hover:shadow-sm',
-    // Secondary: Warm Saffron/Amber (Service & Energy)
+      'bg-teal-500 text-white shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-teal-600',
+    // Secondary: Electric Neo Yellow (Signature punch)
     secondary:
-      'bg-secondary-500 text-slate-950 font-semibold hover:bg-secondary-600 active:bg-secondary-700 focus:ring-secondary-400 shadow-xs hover:shadow-sm',
-    // Accent: Soft Blue (Actions & Highlights)
+      'bg-yellow-400 text-black shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-yellow-300',
+    // Orange / Saffron Energy
+    orange:
+      'bg-orange-500 text-white shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-orange-600',
+    // Accent / Electric Sky
     accent:
-      'bg-accent-500 text-white hover:bg-accent-600 active:bg-accent-700 focus:ring-accent-400 shadow-xs hover:shadow-sm',
-    // Subtle Teal Outline
-    'outline-primary':
-      'border border-primary-700 text-primary-700 bg-white hover:bg-primary-50 active:bg-primary-100 focus:ring-primary-500',
-    // Neutral Outline
+      'bg-cyan-400 text-black shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-cyan-300',
+    // Vivid Pink
+    pink:
+      'bg-rose-400 text-black shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-rose-300',
+    // Electric Purple
+    purple:
+      'bg-purple-500 text-white shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-purple-600',
+    // Outline White
     outline:
-      'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-400 active:bg-slate-100 focus:ring-primary-500',
-    // Ghost / Plain
+      'bg-white text-black shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-slate-50',
+    'outline-primary':
+      'bg-teal-50 text-teal-950 shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-teal-100',
+    // Ghost
     ghost:
-      'text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200 focus:ring-slate-400',
+      'border-transparent shadow-none hover:border-black hover:shadow-neo-sm hover:bg-yellow-50 text-black',
     // Success State
     success:
-      'bg-emerald-600 text-white hover:bg-emerald-700 active:bg-emerald-800 focus:ring-emerald-500 shadow-xs',
+      'bg-lime-400 text-black shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-lime-300',
     // Destructive Actions
     danger:
-      'bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-800 focus:ring-rose-500 shadow-xs',
+      'bg-rose-500 text-white shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg hover:bg-rose-600',
   };
 
   const sizes = {
-    xs: 'px-2.5 py-1 text-xs gap-1',
-    sm: 'px-3 py-1.5 text-xs gap-1.5',
-    md: 'px-4 py-2 text-sm gap-2',
-    lg: 'px-5 py-2.5 text-base gap-2.5',
-    xl: 'px-6 py-3 text-lg gap-3',
+    xs: 'px-3 py-1 text-xs gap-1.5 rounded-lg border-[1.5px]',
+    sm: 'px-3.5 py-1.5 text-xs gap-1.5 rounded-lg',
+    md: 'px-5 py-2.5 text-sm gap-2',
+    lg: 'px-6 py-3.5 text-base gap-2.5',
+    xl: 'px-8 py-4 text-lg gap-3 rounded-2xl border-[3px]',
   };
 
   return (

@@ -4,12 +4,13 @@ import Navbar from '../components/navigation/Navbar';
 import Footer from '../components/navigation/Footer';
 import Input from '../components/ui/Input';
 import Button from '../components/ui/Button';
+import Badge from '../components/ui/Badge';
 import useBookings from '../hooks/useBookings';
 import { services } from '../mock/data/services';
 import { workers } from '../mock/data/workers';
 
 /**
- * Booking Page — SevaSangam
+ * Neo-Brutalist Booking Page — SevaSangam
  * Service booking and scheduling interface with cooperative fair matching support.
  */
 const Booking = () => {
@@ -23,7 +24,7 @@ const Booking = () => {
   const [serviceId, setServiceId] = useState(preselectedServiceId);
   const [workerId, setWorkerId] = useState(preselectedWorkerId);
   const [scheduledDate, setScheduledDate] = useState('');
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState('Flat 402, Greenfield Heights, Andheri West, Mumbai');
   const [notes, setNotes] = useState('');
   const [isEmergency, setIsEmergency] = useState(
     searchParams.get('emergency') === 'true'
@@ -41,7 +42,7 @@ const Booking = () => {
         address,
         notes,
         isEmergency,
-        amount: isEmergency ? 950 : 500,
+        amount: isEmergency ? 950 : 550,
       });
 
       setSuccess(true);
@@ -51,62 +52,70 @@ const Booking = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-[#FFFDF6]">
       <Navbar />
 
       <main className="flex-1 max-w-2xl mx-auto px-4 sm:px-6 py-10 w-full">
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+        <div className="bg-white rounded-3xl border-3 border-black p-6 sm:p-8 shadow-neo-xl">
           <div className="mb-6">
-            <h1 className="text-2xl font-bold text-slate-900">Book Cooperative Service</h1>
-            <p className="text-xs text-slate-500 mt-1">
+            <Badge variant="secondary" size="sm" shadow className="mb-2">
+              ⚡ Direct Cooperative Booking
+            </Badge>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-black font-display tracking-tight">
+              Book Cooperative Service
+            </h1>
+            <p className="text-xs sm:text-sm font-bold text-slate-700 mt-1">
               Guaranteed transparent rates and insured, verified cooperative labor.
             </p>
           </div>
 
           {success ? (
-            <div className="text-center py-8">
-              <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto mb-4">
+            <div className="text-center py-10 bg-yellow-100/60 rounded-2xl border-2 border-black p-6">
+              <div className="w-16 h-16 rounded-2xl bg-teal-300 border-2 border-black shadow-neo flex items-center justify-center text-3xl mx-auto mb-4">
                 ✓
               </div>
-              <h3 className="text-lg font-bold text-slate-900">Booking Request Created!</h3>
-              <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
-                Your request has been dispatched to verified cooperative workers. You can track its
-                progress in your customer dashboard.
+              <h3 className="text-2xl font-extrabold text-black font-display">Booking Dispatched!</h3>
+              <p className="text-xs font-bold text-slate-800 mt-2 max-w-md mx-auto leading-relaxed">
+                Your service order has been sent to verified cooperative trade workers. Track real-time progress in your dashboard.
               </p>
-              <div className="mt-6 flex justify-center gap-3">
-                <Button variant="primary" onClick={() => navigate('/customer')}>
-                  Go to Customer Dashboard
+              <div className="mt-8 flex justify-center gap-4">
+                <Button variant="secondary" size="lg" onClick={() => navigate('/customer')}>
+                  Go to Customer Dashboard ⚡
                 </Button>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-5">
               {/* Emergency Banner */}
-              <div className="p-4 rounded-xl border border-amber-200 bg-amber-50 flex items-start gap-3">
+              <div className={`p-4 rounded-2xl border-2 border-black flex items-start gap-3 transition-colors ${
+                isEmergency ? 'bg-rose-100' : 'bg-yellow-100/70'
+              }`}>
                 <input
                   type="checkbox"
                   id="emergency"
                   checked={isEmergency}
                   onChange={(e) => setIsEmergency(e.target.checked)}
-                  className="mt-0.5 rounded text-amber-600 focus:ring-amber-500"
+                  className="mt-1 w-4 h-4 rounded border-2 border-black text-rose-600 focus:ring-0 cursor-pointer"
                 />
-                <label htmlFor="emergency" className="text-xs text-amber-900 cursor-pointer">
-                  <span className="font-bold">Urgent / Emergency Service Request</span>
-                  <p className="text-amber-700 mt-0.5">
-                    Fastest dispatch to nearest available cooperative worker.
+                <label htmlFor="emergency" className="text-xs font-bold text-black cursor-pointer">
+                  <span className="text-sm font-extrabold flex items-center gap-1">
+                    🚨 Urgent / Emergency Service Dispatch
+                  </span>
+                  <p className="text-slate-800 font-semibold mt-0.5">
+                    Prioritizes fastest dispatch to nearest available on-duty cooperative worker.
                   </p>
                 </label>
               </div>
 
               {/* Service Selection */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Select Service
+                <label className="block text-xs font-extrabold text-black mb-1.5 uppercase tracking-wider">
+                  Select Trade Service
                 </label>
                 <select
                   value={serviceId}
                   onChange={(e) => setServiceId(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  className="w-full px-3.5 py-3 border-2 border-black rounded-xl text-sm font-bold bg-white shadow-neo-sm focus:outline-none focus:shadow-neo cursor-pointer"
                   required
                 >
                   {services.map((svc) => (
@@ -119,18 +128,18 @@ const Booking = () => {
 
               {/* Worker Preference */}
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Worker Selection
+                <label className="block text-xs font-extrabold text-black mb-1.5 uppercase tracking-wider">
+                  Worker Selection / Matching
                 </label>
                 <select
                   value={workerId}
                   onChange={(e) => setWorkerId(e.target.value)}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  className="w-full px-3.5 py-3 border-2 border-black rounded-xl text-sm font-bold bg-white shadow-neo-sm focus:outline-none focus:shadow-neo cursor-pointer"
                 >
-                  <option value="">AI Fair Match (Recommended — automatically selects nearest worker)</option>
+                  <option value="">⚡ AI Fair Match (Recommended — auto-balances workload)</option>
                   {workers.map((wrk) => (
                     <option key={wrk.id} value={wrk.id}>
-                      {wrk.name} ({wrk.cooperative}) — ₹{wrk.hourlyRate}/hr
+                      {wrk.name} ({wrk.cooperative}) — ₹{wrk.hourlyRate}/hr ★{wrk.rating}
                     </option>
                   ))}
                 </select>
@@ -147,7 +156,7 @@ const Booking = () => {
               )}
 
               <Input
-                label="Service Address"
+                label="Service Location / Address"
                 placeholder="Flat / House No, Landmark, City, Pincode"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -155,21 +164,28 @@ const Booking = () => {
               />
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Problem Description / Notes
+                <label className="block text-xs font-extrabold text-black mb-1.5 uppercase tracking-wider">
+                  Problem Description & Instructions
                 </label>
                 <textarea
                   rows={3}
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Describe the issue or requirements in detail..."
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  placeholder="Describe the issue in detail (e.g. kitchen sink leak, main circuit breaker tripping)..."
+                  className="w-full px-4 py-3 border-2 border-black rounded-xl text-sm font-medium bg-white shadow-neo-sm focus:outline-none focus:shadow-neo"
                 />
               </div>
 
-              <div className="pt-2">
-                <Button type="submit" variant="primary" className="w-full" disabled={loading}>
-                  {loading ? 'Submitting Booking...' : isEmergency ? '🚨 Request Emergency Worker' : 'Confirm Booking'}
+              <div className="pt-3">
+                <Button
+                  type="submit"
+                  variant={isEmergency ? 'danger' : 'secondary'}
+                  size="lg"
+                  fullWidth
+                  disabled={loading}
+                  className="font-extrabold text-base"
+                >
+                  {loading ? 'Submitting Booking...' : isEmergency ? '🚨 Dispatch Emergency Worker Now' : 'Confirm Cooperative Booking ⚡'}
                 </Button>
               </div>
             </form>

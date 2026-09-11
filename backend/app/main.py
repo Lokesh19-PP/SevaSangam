@@ -1,10 +1,30 @@
 """SevaSangam Backend Application Entrypoint."""
 
+import logging
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import api_router
 from app.core.config import settings
+from app.database.init_db import init_database
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger("sevasangam")
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Application lifecycle events: initialize and seed database on startup."""
+    logger.info("Initializing database tables and seed data...")
+    init_database()
+    logger.info("Application startup complete.")
+    yield
+    logger.info("Application shutdown.")
+
 
 # Initialize FastAPI application
 app = FastAPI(
@@ -12,6 +32,7 @@ app = FastAPI(
     version=settings.VERSION,
     description=settings.DESCRIPTION,
     openapi_url=f"{settings.API_V1_STR}/openapi.json" if settings.DEBUG else None,
+    lifespan=lifespan,
 )
 
 # Configure CORS middleware
